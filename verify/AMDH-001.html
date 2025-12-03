@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Verification - A.M DIGITAL HEALTH HUB</title>
     <style>
+        /* Body & Background */
         body {
-            font-family: Arial, sans-serif;
-            background: #e9ecef;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f2ff, #e9ecef);
             margin: 0;
             padding: 20px;
             display: flex;
@@ -15,90 +16,118 @@
             align-items: flex-start;
             min-height: 100vh;
         }
+
+        /* Card */
         .card {
             background: #fff;
             width: 360px;
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             text-align: center;
-            border: 2px solid #0d6efd;
+            border: 2px solid;
+            border-image: linear-gradient(to right, #0d6efd, #6c63ff) 1;
         }
+
+        /* Header */
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin-bottom: 15px;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .logo {
             width: 80px;
-            position: absolute;
-            left: 0;
+            display: inline-block;
+            vertical-align: middle;
         }
         .company-name {
+            display: inline-block;
             font-size: 20px;
             font-weight: bold;
             color: #0d6efd;
-            text-align: center;
+            margin-left: 10px;
+            vertical-align: middle;
         }
+
+        /* Staff Photo */
         img.photo {
             width: 140px;
             height: 140px;
-            border-radius: 10px;
+            border-radius: 50%;
             object-fit: cover;
             margin: 15px auto;
             display: block;
+            border: 3px solid #0d6efd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        /* Title */
         .title {
             font-size: 20px;
             font-weight: bold;
             margin-top: 10px;
             color: #0d6efd;
         }
+
+        /* Staff Info */
         .field {
             text-align: left;
             margin-top: 12px;
             font-size: 16px;
         }
+
+        /* Status Badge */
         .status {
             background: #28a745;
             color: white;
-            padding: 10px;
-            border-radius: 6px;
+            padding: 12px;
+            border-radius: 20px;
             margin-top: 20px;
             font-weight: bold;
             font-size: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
+
+        /* Footer */
         .footer {
             margin-top: 15px;
             font-size: 13px;
             color: #555;
         }
+        .footer a {
+            text-decoration: none;
+            color: #0d6efd;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="card">
+    <!-- Header: Logo + Company Name -->
     <div class="header">
         <img src="logo.png" class="logo" alt="Company Logo">
         <div class="company-name">A.M DIGITAL HEALTH HUB</div>
     </div>
 
+    <!-- Staff Photo -->
     <img src="AMDH-001.jpg" class="photo" alt="Profile Photo">
 
+    <!-- Verified Title -->
     <div class="title">VERIFIED STAFF</div>
 
+    <!-- Staff Details -->
     <div class="field"><strong>Name:</strong> HASSAN AL-MUJTABA JA'AFAR</div>
     <div class="field"><strong>Position:</strong> Chief Executive Officer</div>
     <div class="field"><strong>ID Number:</strong> AMDH/CEO/2025/001</div>
     <div class="field"><strong>Issue Date:</strong> 05-08-2025</div>
     <div class="field"><strong>Expire Date:</strong> 05-08-2035</div>
 
-    <div class="status">STATUS: ACTIVE & VERIFIED</div>
+    <!-- Status Badge -->
+    <div class="status">STATUS: ACTIVE</div>
 
+    <!-- Footer -->
     <div class="footer">
-        <a href="https://amdigitalhealthhub.github.io/am-digital-health-hub/.html"> Click here to visit our website: </a> 
+        <a href="https://amdigitalhealthhub.github.io/am-digital-health-hub/">Click here to visit our website:</a>
     </div>
 </div>
 
