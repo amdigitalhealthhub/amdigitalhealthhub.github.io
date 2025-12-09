@@ -3,99 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Verification - A.M DIGITAL HEALTH HUB</title>
+    <title>Verification: Hassan Al-Mujtaba Ja'afar | A.M DIGITAL HEALTH HUB</title>
+    <link rel="icon" href="logo.png" type="image/png"> 
+    
     <style>
         /* Body & Background */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e0f2ff, #e9ecef);
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center; /* Center vertically too */
             min-height: 100vh;
         }
 
-        /* Card */
+        /* Card Container */
         .card {
             background: #fff;
-            width: 360px;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 380px; /* Slightly wider for modern phones */
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
-            border: 2px solid;
-            border-image: linear-gradient(to right, #0d6efd, #6c63ff) 1;
+            /* FIXED: Replaced border-image with a solid color to keep rounded corners */
+            border: 2px solid #0d6efd; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Top Bar to match ID card design */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, #0d6efd, #00cba9);
         }
 
         /* Header */
         .header {
-            text-align: center;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            gap: 10px;
         }
         .logo {
-            width: 80px;
-            display: inline-block;
-            vertical-align: middle;
+            width: 50px;
+            height: auto;
         }
         .company-name {
-            display: inline-block;
-            font-size: 20px;
-            font-weight: bold;
-            color: #0d6efd;
-            margin-left: 10px;
-            vertical-align: middle;
+            font-size: 18px;
+            font-weight: 800; /* Extra bold */
+            color: #1a202c;
+            text-transform: uppercase;
+            line-height: 1.2;
+            text-align: left;
         }
 
         /* Staff Photo */
+        .photo-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+        }
         img.photo {
-            width: 140px;
-            height: 140px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            margin: 15px auto;
-            display: block;
-            border: 3px solid #0d6efd;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 4px solid #fff; /* White ring */
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3); /* Blue glowing shadow */
         }
 
-        /* Title */
-        .title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 10px;
-            color: #0d6efd;
+        /* Verified Checkmark */
+        .verified-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: #0d6efd;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 3px solid #fff;
         }
 
         /* Staff Info */
-        .field {
-            text-align: left;
-            margin-top: 12px;
+        .staff-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0d6efd;
+            margin-bottom: 5px;
+        }
+        .staff-role {
             font-size: 16px;
+            color: #28a745; /* Green to match ID card role */
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
-        /* Status Badge */
+        .data-grid {
+            text-align: left;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 8px;
+        }
+        .data-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Status Badge with Animation */
         .status {
-            background: #28a745;
-            color: white;
+            background: #d4edda;
+            color: #155724;
             padding: 12px;
-            border-radius: 20px;
-            margin-top: 20px;
+            border-radius: 50px;
             font-weight: bold;
-            font-size: 16px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-size: 14px;
+            letter-spacing: 1px;
+            display: inline-block;
+            width: 80%;
+            border: 1px solid #c3e6cb;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
         }
 
         /* Footer */
         .footer {
-            margin-top: 15px;
-            font-size: 13px;
-            color: #555;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #888;
         }
-        .footer a {
+        .btn-visit {
+            display: inline-block;
+            margin-top: 10px;
             text-decoration: none;
-            color: #0d6efd;
+            background: #0d6efd;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .btn-visit:hover {
+            background: #0b5ed7;
         }
 
     </style>
@@ -103,31 +188,39 @@
 <body>
 
 <div class="card">
-    <!-- Header: Logo + Company Name -->
     <div class="header">
-        <img src="logo.png" class="logo" alt="Company Logo">
-        <div class="company-name">A.M DIGITAL HEALTH HUB</div>
+        <img src="logo.png" class="logo" alt="Logo">
+        <div class="company-name">A.M Digital<br>Health Hub</div>
     </div>
 
-    <!-- Staff Photo -->
-    <img src="AMDH-001.jpg" class="photo" alt="Profile Photo">
+    <div class="photo-container">
+        <img src="AMDH-001.jpg" class="photo" alt="Hassan Al-Mujtaba">
+        <div class="verified-icon">✔</div>
+    </div>
 
-    <!-- Verified Title -->
-    <div class="title">VERIFIED STAFF</div>
+    <div class="staff-name">HASSAN AL-MUJTABA JA'AFAR</div>
+    <div class="staff-role">Chief Executive Officer</div>
 
-    <!-- Staff Details -->
-    <div class="field"><strong>Name:</strong> HASSAN AL-MUJTABA JA'AFAR</div>
-    <div class="field"><strong>Position:</strong> Chief Executive Officer</div>
-    <div class="field"><strong>ID Number:</strong> AMDH/CEO/2025/001</div>
-    <div class="field"><strong>Issue Date:</strong> 05-08-2025</div>
-    <div class="field"><strong>Expire Date:</strong> 05-08-2035</div>
+    <div class="data-grid">
+        <div class="data-row">
+            <span class="label">ID Number:</span>
+            <span>AMDH/CEO/2025/001</span>
+        </div>
+        <div class="data-row">
+            <span class="label">Issued:</span>
+            <span>05-08-2025</span>
+        </div>
+        <div class="data-row">
+            <span class="label">Expires:</span>
+            <span>05-08-2035</span>
+        </div>
+    </div>
 
-    <!-- Status Badge -->
-    <div class="status">STATUS: ACTIVE</div>
+    <div class="status">● STATUS: ACTIVE</div>
 
-    <!-- Footer -->
     <div class="footer">
-        <a href="https://amdigitalhealthhub.github.io/am-digital-health-hub/">Click here to visit our website:</a>
+        Verified Official Digital Credential<br>
+        <a href="https://amdigitalhealthhub.github.io/am-digital-health-hub/" class="btn-visit">Visit Official Website</a>
     </div>
 </div>
 
